@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}Transfer Money {% endblock title %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+  <h3 class=" t_credit text-center ">Transfer Credit</h3>
+</div>
+
+{% if messages %}
+<div class="alert alert-warning alert-dismissible fade show " role="alert">
+  {% for message in messages %}
+  <strong {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="container moneyForm">
+  <form method="post" action="/customers">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-4">
+          <label for="sender" class="form-label my-2">Sender :</label>
+        </div>
+        <div class="col-md-8">
+          <input type="text" id="sender" class="form-control my-2" placeholder="{{ fetched_name }} ,ID={{fetched_id}}" disabled>
+          <input type="hidden" name="senderId" value="{{fetched_id}}">
+          <input type="hidden" name="senderName" value="{{fetched_name}}">
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label for="receiverName" class="form-label my-2">Choose Receiver's Name:</label>
+      </div>
+      <div class="col-md-8">
+        <select class="form-control my-2 " required aria-label=".form-select-lg" name="receiverName" >
+          <option disabled selected="selected" value="">---</option>
+          {% for customers in allcustomers %}
+
+          <option value="{{ customers.c_name }}">{{ customers.c_name }}</option>
+          {% endfor %}
+
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 my-2">
+        <label for="receiverId" class="form-label">Choose Receiver's ID:</label>
+      </div>
+      <div class="col-md-8 my-2">
+        <select class="form-control"  required aria-label="Default select " name="receiverId">
+          <option disabled selected="selected" value="">---</option>
+          {% for customers in allcustomers %}
+
+          <option value="{{ customers.c_id }}">{{ customers.c_id }}</option>
+          {% endfor %}
+
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <label for="credits" class="form-label my-2">Credits</label>
+      </div>
+      <div class="col-md-8">
+        <input type="number" class="form-control my-2" id="credits" name="credits" placeholder="Credits" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+
+      <button type="submit" class="btn btn-primary my-2 tMoneyBtn">Transfer</button></div>
+    </div>
+  </form>
+</div>
+
+{% endblock body %}

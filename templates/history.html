@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}History {% endblock title %}
+{% load static %}
+
+
+{% block body %}
+
+
+
+
+    <h1 class=" text-center chistory ">Transaction History</h1>
+
+
+<div class="container text-center">
+    <table border="1" width="600" class="text-center" id="history">
+        <tr>
+            <th>Sender ID</th>
+            <th>Sender Name</th>
+            <th>Receiver ID</th>
+            <th>Receiver Name</th>
+            <th>Timing</th>
+            <th>Balance</th>
+        </tr>
+        {% for history in c_history %}
+        <tr>
+            <td>{{ history.s_id }}</td>
+            <td>{{ history.s_name }}</td>
+            <td>{{ history.r_id }}</td>
+            <td>{{ history.r_name }}</td>
+            <td>{{ history.t_date }}</td>
+
+            <td>{{ history.transaction }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+{% endblock body %}

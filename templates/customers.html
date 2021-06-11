@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Customers {% endblock title %}
+{% load static %}
+
+
+
+{% block body %}
+
+<h1 class="text-center cheading">Customers</h1>
+{% if messages %}
+<div class="alert alert-warning alert-dismissible fade show " role="alert">
+  {% for message in messages %}
+  <strong {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="container">
+<table border="1" width="600" id="customers" >
+    <tr>
+        <th>Customer ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Balance</th>
+        <th>View</th>
+    </tr>
+    {% for customers in allcustomers %}
+    <tr > 
+    <td>{{ customers.c_id }}</td>
+    <td>{{ customers.c_name }}</td>
+    <td>{{ customers.c_email }}</td>
+    <td>{{ customers.c_balance }}</td>
+    <td>
+    <form method="post" action="/customers">
+        {% csrf_token %}
+        <input type="hidden" id="id" name="cid" value="{{ customers.c_id }}">
+        <input type="hidden" id="name" name="cname" value="{{ customers.c_name }}">
+        <button type="submit" class="cbutton">View and Transact </button>
+    </form>
+    <span class="glyphicon glyphicon-transfer"></span>
+    </td>
+    </tr>
+    {% endfor %}
+    </table>   
+</div>
+    
+
+
+
+
+{% endblock body %}
