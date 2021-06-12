@@ -56,6 +56,12 @@ body{
     height:400px;
 
 }
+@media only screen and (max-width: 480px) {
+    .quotes {
+        height:300px;
+      }
+  }
+
 
 .task{
     margin-left: 25px;
@@ -69,10 +75,26 @@ h3.w3layouts span {
     margin:15px;
 }
 
+@media only screen and (max-width: 480px) {
+    .w3layouts {
+        font-weight: 400;      }
+  }
+
+
 .media-body p{
     font-weight: 500;
     color:rgba(10, 0, 0, 0.8)
 }
+
+@media only screen and (max-width: 480px) {
+    .media-body p {
+        font-weight: 400;      }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .media-body h4 {
+        font-weight: 400;      }
+  }
 .copyright-wthree {
     color:white;
     background: #000;
