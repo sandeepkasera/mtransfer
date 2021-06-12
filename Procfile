@@ -1,1 +1,1 @@
-web: gunicorn mtransfer.wsgi --log-file -
+web: gunicorn mtransfer.wsgi 
