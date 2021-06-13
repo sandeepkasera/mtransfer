@@ -124,7 +124,7 @@ h3.w3layouts span {
   }
   @media only screen and (max-width: 480px) {
     #customers th, #history th {
-        padding: 1px;
+        padding: 2px;
         font-size: smaller;
       }
   }
@@ -198,12 +198,25 @@ h3.w3layouts span {
 
 }
 
+@media only screen and (max-width: 578px) {
+  .moneyForm label{
+    font-weight: 500;
+    font-size:medium;
+    }
+}
+
 .moneyForm input, .moneyForm select{
     font-family: Geneva, Verdana, sans-serif;
     font-weight: 600;
     font-size: large;
     width: 80%;
-
+}
+@media only screen and (max-width: 578px) {
+  .moneyForm input, .moneyForm select{
+    width: 95%;
+    font-size: medium;
+    font-weight: 500;
+    }
 }
 
 .tMoneyBtn{
