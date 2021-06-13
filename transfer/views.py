@@ -36,14 +36,15 @@ def customers(request):
 
             credits = int(request.POST['credits'])
 
-            print(receiverName,receiverId,credits,senderId,senderName)
+            #print(receiverName,receiverId,credits,senderId,senderName)
 
+            s = C_details.objects.filter(c_id=senderId)
             r = C_details.objects.filter(c_id=receiverId)
-            print(r.values_list())
+            #print(r.values_list())
             if (list(r.values_list())[0][2]) == receiverName:
                 #updating transaction in the database
                 balr = list(r.values_list())[0][4] + credits
-                bals = list(r.values_list())[0][4] - credits
+                bals = list(s.values_list())[0][4] - credits
                 C_details.objects.filter(c_id=senderId).update(c_balance=bals)
                 C_details.objects.filter(c_id=receiverId).update(c_balance=balr)
 
