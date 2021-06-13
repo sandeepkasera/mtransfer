@@ -5,6 +5,18 @@ body{
     padding-right:0px;
     padding-left: 0px;
 }
+
+
+@media only screen and (max-width: 480px) {
+    .container {
+        padding-right: 5px;
+        padding-left: 5px;
+    
+      }
+  }
+
+
+
 /*---  CSS Index ----*/
 .navbar{
     width: 100%;
@@ -44,6 +56,12 @@ body{
     height:400px;
 
 }
+@media only screen and (max-width: 480px) {
+    .quotes {
+        height:300px;
+      }
+  }
+
 
 .task{
     margin-left: 25px;
@@ -57,10 +75,26 @@ h3.w3layouts span {
     margin:15px;
 }
 
+@media only screen and (max-width: 480px) {
+    .w3layouts {
+        font-weight: 400;      }
+  }
+
+
 .media-body p{
     font-weight: 500;
     color:rgba(10, 0, 0, 0.8)
 }
+
+@media only screen and (max-width: 480px) {
+    .media-body p {
+        font-weight: 400;      }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .media-body h4 {
+        font-weight: 400;      }
+  }
 .copyright-wthree {
     color:white;
     background: #000;
@@ -88,7 +122,12 @@ h3.w3layouts span {
         padding: 6px;
       }
   }
-
+  @media only screen and (max-width: 480px) {
+    #customers th, #history th {
+        padding: 1px;
+        font-size: smaller;
+      }
+  }
   #customers td,#history td{
     border: 1px solid gray;
     padding: 5px;
@@ -110,6 +149,11 @@ h3.w3layouts span {
 
       }
   }
+  @media only screen and (max-width: 480px) {
+    #customers td, #history td {
+        padding: 1px;
+      }
+  }
   #history tr:hover {
       background-color: #8DA399;
       color:honeydew;
@@ -124,7 +168,12 @@ h3.w3layouts span {
    font-weight: 600;
    outline: none!important;
   }
-
+  @media only screen and (max-width: 480px) {
+    .cbutton{
+        width: 100%;
+        font-weight:500;
+      }
+  }
   .cbutton:hover {background-color: #8DA399;}
   
 
